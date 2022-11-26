@@ -30,7 +30,6 @@ app.get("/jwtid", requireAuth, (req, res) => {
 //routes
 app.use("/api/user", userRoutes);
 app.use("/api/link", linkRoutes);
-
 app.get("/:short_url", linkController.redirectToLink);
 
 //server
