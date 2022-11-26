@@ -4,8 +4,11 @@ const userRoutes = require("./routes/user.routes");
 require("dotenv").config({ path: "./config/.env" });
 require("./config/db.js");
 const { checkUser, requireAuth } = require("./middleware/auth.middleware");
+const cors = require("cors");
+
 const app = express();
 
+app.use(cors({ origin: process.env.CLIENT_URL }));
 app.use(express.json());
 app.use(
   express.urlencoded({

@@ -19,6 +19,8 @@
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^4.8.0",
     "mongoose": "^6.4.6",
+    "node-cron": "^3.0.2",
+    "randomstring": "^1.2.3",
     "validator": "^13.7.0"
   }
 }

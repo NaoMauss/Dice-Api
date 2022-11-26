@@ -25,6 +25,9 @@ const userSchema = new mongoose.Schema(
       max: 1024,
       minLength: 6,
     },
+    links: {
+      type: [String],
+    },
   },
   {
     timestamps: true,
