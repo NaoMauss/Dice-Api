@@ -38,13 +38,18 @@ module.exports.createLink = async (req, res) => {
     created_at: Date.now(),
   });
   savelinktodb.save();
-  res.send(process.env.CLIENT_URL + randomid);
+  res.send(process.env.CLIENT_URL + "a/" + randomid);
 };
 
 module.exports.redirectToLink = async (req, res) => {
   const short_url = req.params.short_url;
   const query = LinkModel.findOne({ _id: short_url });
+
   query.exec(function (err, link) {
+    if (link === null) {
+      res.end();
+      return;
+    }
     res.redirect(link.url);
   });
 };
