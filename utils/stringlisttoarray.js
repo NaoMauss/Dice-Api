@@ -1,0 +1,10 @@
+//convert string into an array with , as delimiters
+
+const list = "a,b,c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z";
+
+const stringListToArray = (stringList) => {
+  let array = stringList.split(",");
+  return array;
+};
+
+console.log(stringListToArray(list));
