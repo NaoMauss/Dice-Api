@@ -2,29 +2,62 @@ const mongoose = require("mongoose");
 
 const gameSchema = new mongoose.Schema(
   {
-    pseudo: {
+    ID: {
       type: String,
       required: true,
-      minLength: 3,
-      maxLength: 55,
-      unique: true,
-      trimp: true,
     },
-    email: {
+    Name: {
       type: String,
       required: true,
-      validate: [isEmail],
       lowercase: true,
-      trim: true,
     },
-    password: {
+    YearPublished: {
+      type: String,
+      required: false,
+    },
+    MinPlayers: {
       type: String,
       required: true,
-      max: 1024,
-      minLength: 6,
     },
-    links: {
-      type: [String],
+    MaxPlayers: {
+      type: String,
+      required: true,
+    },
+    PlayTime: {
+      type: String,
+      required: true,
+    },
+    MinAge: {
+      type: String,
+      required: true,
+    },
+    UsersRated: {
+      type: String,
+      required: true,
+    },
+    RatingAverage: {
+      type: String,
+      required: true,
+    },
+    BGGRank: {
+      type: String,
+      required: true,
+    },
+    ComplexityAverage: {
+      type: String,
+      required: true,
+    },
+    OwnedUsers: {
+      type: String,
+      required: true,
+    },
+    Mechanics: {
+      type: String,
+      required: true,
+    },
+    Domains: {
+      type: String,
+      required: true,
     },
   },
   {

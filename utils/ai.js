@@ -74,8 +74,9 @@ rl.question("Entrez le nom d'un jeu : ", (nom) => {
   const jeu = trouverJeuParNom(nom);
 
   if (jeu) {
+    console.log(jeu);
     const recommandations = recommanderJeux(jeu);
-    console.log(recommandations);
+    // console.log(recommandations);
 
     console.log(`Top 5 des jeux recommandés pour ${jeu.Name} :`);
     recommandations.forEach((r, i) =>
