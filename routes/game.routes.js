@@ -1,10 +1,11 @@
-const rooterGame = require("express").Router();
 const { Router } = require("express");
-const authController = require("../controller/game.controller");
+const rooterGame = require("express").Router();
+const gameController = require("../controller/game.controller");
 
-rooterGame.get("/", authController.getAllGames);
-rooterGame.get("/:id", authController.getGame);
-rooterGame.put("/:id", authController.updateGame);
-rooterGame.delete("/:id", authController.deleteGame);
+rooterGame.get("/", gameController.getAllGames);
+rooterGame.get("/:id", gameController.getGame);
+rooterGame.put("/:id", gameController.updateGame);
+rooterGame.delete("/:id", gameController.deleteGame);
+rooterGame.post("/", gameController.createGame);
 
 module.exports = rooterGame;

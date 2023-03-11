@@ -1,13 +1,9 @@
 const express = require("express");
 const cookieParser = require("cookie-parser");
 const userRoutes = require("./routes/user.routes");
-const linkRoutes = require("./routes/link.routes");
-const LinkModel = require("./models/links.model");
 const gameRoutes = require("./routes/game.routes");
-const linkController = require("./controller/link.controller");
 require("dotenv").config({ path: "./config/.env" });
 require("./config/db.js");
-const { checkUser, requireAuth } = require("./middleware/auth.middleware");
 const cors = require("cors");
 
 const app = express();
@@ -21,16 +17,7 @@ app.use(
 );
 app.use(cookieParser());
 
-//jwt
-app.get("*", checkUser); // s'execute à chaque redirection pour vérifier le cookie
-app.get("/jwtid", requireAuth, (req, res) => {
-  res.status(200).send(res.locals.user._id);
-});
-
 //routes
-app.use("/api/user", userRoutes);
-app.use("/api/link", linkRoutes);
-app.get("/:short_url", linkController.redirectToLink);
 app.use("/api/game", gameRoutes);
 
 //server
